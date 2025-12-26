@@ -1,0 +1,8 @@
+llama-index
+pypdf
+tqdm
+chromadb
+sentence-transformers
+groq
+python-dotenv
+streamlit
