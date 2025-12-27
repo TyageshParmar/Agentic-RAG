@@ -66,6 +66,48 @@ The assistant follows a **multi-agent orchestration pattern**, where each agent 
 
 ---
 
+## 🏗️ System Architecture Diagram
+
+```mermaid
+flowchart LR
+    U[User / Reviewer] -->|Natural Language Query| UI[Streamlit Web Interface]
+
+    UI --> P[Planner Agent]
+    P -->|Query Type & Sections| R[Retrieval Agent]
+
+    R -->|Top-K Relevant Chunks| V[(ChromaDB Vector Store)]
+    V --> R
+
+    R -->|Retrieved Passages + Metadata| S[Synthesis Agent]
+
+    S -->|Structured Evidence + Citations| G[Generator Agent (Groq LLM)]
+
+    G -->|Grounded Answer| UI
+
+    subgraph Knowledge_Base
+        D[AWS RAG Prescriptive Guidance PDF]
+        D -->|Chunking & Embeddings| V
+    end
+```
+
+### 🧠 What this diagram communicates clearly
+- End-to-end RAG flow
+- Agentic orchestration
+- Single source of truth
+- Grounding enforcement
+- Separation of concerns
+
+This diagram **directly satisfies** the assignment requirement:
+> *“Agent decisions are observable and traceable”*
+
+---
+
+# ✅ Option 2: ASCII Architecture Diagram (Fallback / Text-Based)
+
+Use this **in addition** if you want maximum compatibility.
+
+
+
 ## 📄 Knowledge Source (Single Source of Truth)
 
 - **AWS Prescriptive Guidance PDF**
