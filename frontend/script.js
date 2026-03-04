@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
         appendBotLoading();
 
         try {
-            const response = await fetch('https://your-username-your-space-name.hf.space/api/query', {
+            const response = await fetch('https://tyageshparmar-agentic-rag.hf.space/api/query', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -212,4 +212,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
-
