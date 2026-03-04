@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic RAG Assistant - Chat</title>
+    <meta name="description" content="Chat with AWS RAG Prescriptive Guidance Assistant">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Bring in marked.js for markdown rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar layout mimicking original Streamlit, but premium -->
+        <aside class="sidebar glass-panel">
+            <div class="sidebar-header">
+                <h2>🧠 System Info</h2>
+            </div>
+            <div class="sidebar-content">
+                <div class="info-block">
+                    <h3>📄 Knowledge Source</h3>
+                    <p>AWS Prescriptive Guidance</p>
+                    <p class="subtext">Retrieval Augmented Generation options and architectures on AWS</p>
+                </div>
+                <div class="divider"></div>
+                <div class="info-block">
+                    <h3>🧪 Example Queries</h3>
+                    <ul class="example-list">
+                        <li onclick="setQuery(this.innerText)">Compare fully managed RAG options with custom
+                            architectures</li>
+                        <li onclick="setQuery(this.innerText)">What are the retriever options described in the guide?
+                        </li>
+                        <li onclick="setQuery(this.innerText)">How does RAG compare with fine-tuning?</li>
+                        <li onclick="setQuery(this.innerText)">What is the role of a generator in RAG?</li>
+                        <li onclick="setQuery(this.innerText)">Which RAG option is best for enterprise search?</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sidebar-footer">
+                <p>Agentic RAG Assistant built for Assignment Evaluation & Technical Review</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="header glass-panel">
+                <h1>Agentic RAG Chatbot</h1>
+                <p class="subtitle">Ask questions about AWS RAG Prescriptive Guidance</p>
+            </header>
+
+            <div class="chat-container glass-panel" id="chatContainer">
+                <!-- Welcome Message -->
+                <div class="message bot-message">
+                    <div class="avatar bg-blue">🤖</div>
+                    <div class="message-content">
+                        <p>Hello! I am the Agentic RAG Assistant. Ask me any complex questions about RAG options and
+                            architectures on AWS, and I will answer strictly based on the official AWS Prescriptive
+                            Guidance document.</p>
+                        <p>How can I help you today?</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-area glass-panel">
+                <textarea id="queryInput" placeholder="Type your message here... (Shift+Enter for newline)"
+                    rows="1"></textarea>
+                <button id="sendBtn" class="send-btn" aria-label="Send Message">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24"
+                        height="24">
+                        <path
+                            d="M3.478 2.405a1.153 1.153 0 0 0 -1.415 1.415l3.22 17.16a1.153 1.153 0 0 0 2.181 -.17l2.844 -8.077 8.077 -2.844a1.153 1.153 0 0 0 .17 -2.181l-17.16 -3.22z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
